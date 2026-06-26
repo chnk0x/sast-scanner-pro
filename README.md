@@ -47,23 +47,17 @@
 ### 🖥️ Terminal Scan Output
 > Scanning the bundled vulnerable test app (`vulnerable_app/`) across all 7 engines and 4 report formats. 25 files discovered, **69 findings** verified after triage — output to HTML, JSON, and CSV in under a second.
 
-![Terminal scan output showing 25 files discovered, 69 findings verified](screenshots/Screenshot_01.jpg)
-
 <br/>
 <img width="1917" height="1048" alt="Screenshot 3" src="https://github.com/user-attachments/assets/78d87737-53a4-4f07-a09b-25157ed88c8f" />
 
 ### 📊 HTML Security Audit Dashboard
 > The auto-generated `sast_report.html` — a professional security audit dashboard with severity breakdown cards (25 Critical · 33 High · 10 Medium · 1 Low), a sortable findings table with CWE IDs, OWASP categories, inline code snippets, and per-finding remediation guidance.
 
-![SAST HTML Security Audit Report dashboard showing 69 findings](screenshots/Screenshot_3.jpg)
-
 <br/>
 <img width="1655" height="909" alt="Screenshot 5" src="https://github.com/user-attachments/assets/91d6d3a0-4f27-435d-bec8-c0fc263189fd" />
 
 ### 🔍 Finding Detail: Taint, Deserialization & Secrets
 > Sample findings from the report — a **taint-based insecure deserialization** (`pickle.loads(base64.b64decode(data))`) traced from user-controlled input, an **open redirect** via taint flow, and a **hardcoded admin password** (`ADMIN_PASSWORD = "admin123"`) with its full CVSS 7.5 vector and remediation steps.
-
-![Finding detail showing taint-based insecure deserialization, open redirect, and hardcoded secret](screenshots/Screenshot_5.jpg)
 
 <br/>
 
