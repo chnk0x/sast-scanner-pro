@@ -1,3 +1,4 @@
+<img width="868" height="473" alt="Screenshot 01" src="https://github.com/user-attachments/assets/ce5178c1-e839-46e3-b402-5cc112544f9e" />
 <div align="center">
 
 <!-- Animated Header Banner -->
@@ -44,6 +45,7 @@
 ## 📸 Screenshots
 
 <br/>
+![Uploading Screenshot 01.jpg…]()
 
 ### 🖥️ Terminal Scan Output
 > Scanning the bundled vulnerable test app (`vulnerable_app/`) across all 7 engines and 4 report formats. 25 files discovered, **69 findings** verified after triage — output to HTML, JSON, and CSV in under a second.
