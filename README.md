@@ -1,6 +1,3 @@
-<img width="868" height="473" alt="Screenshot 01" src="https://github.com/user-attachments/assets/ce5178c1-e839-46e3-b402-5cc112544f9e" />
-<div align="center">
-
 <!-- Animated Header Banner -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,50:1e3a5f,100:0ea5e9&height=200&section=header&text=SAST%20SCANNER%20PRO&fontSize=52&fontColor=ffffff&fontAlignY=38&desc=Next-Generation%20AI-Augmented%20Static%20Security%20Testing&descAlignY=58&descSize=16&animation=fadeIn"/>
@@ -45,12 +42,15 @@
 ## 📸 Screenshots
 
 <br/>
+<img width="868" height="473" alt="Screenshot 01" src="https://github.com/user-attachments/assets/af45cc92-4877-41e1-a1ae-25e6be93d4fb" />
+
 ### 🖥️ Terminal Scan Output
 > Scanning the bundled vulnerable test app (`vulnerable_app/`) across all 7 engines and 4 report formats. 25 files discovered, **69 findings** verified after triage — output to HTML, JSON, and CSV in under a second.
 
 ![Terminal scan output showing 25 files discovered, 69 findings verified](screenshots/Screenshot_01.jpg)
 
 <br/>
+<img width="1917" height="1048" alt="Screenshot 3" src="https://github.com/user-attachments/assets/78d87737-53a4-4f07-a09b-25157ed88c8f" />
 
 ### 📊 HTML Security Audit Dashboard
 > The auto-generated `sast_report.html` — a professional security audit dashboard with severity breakdown cards (25 Critical · 33 High · 10 Medium · 1 Low), a sortable findings table with CWE IDs, OWASP categories, inline code snippets, and per-finding remediation guidance.
@@ -58,6 +58,7 @@
 ![SAST HTML Security Audit Report dashboard showing 69 findings](screenshots/Screenshot_3.jpg)
 
 <br/>
+<img width="1655" height="909" alt="Screenshot 5" src="https://github.com/user-attachments/assets/91d6d3a0-4f27-435d-bec8-c0fc263189fd" />
 
 ### 🔍 Finding Detail: Taint, Deserialization & Secrets
 > Sample findings from the report — a **taint-based insecure deserialization** (`pickle.loads(base64.b64decode(data))`) traced from user-controlled input, an **open redirect** via taint flow, and a **hardcoded admin password** (`ADMIN_PASSWORD = "admin123"`) with its full CVSS 7.5 vector and remediation steps.
