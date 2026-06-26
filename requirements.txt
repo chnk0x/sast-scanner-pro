@@ -1,0 +1,5 @@
+# Core dependencies
+pyyaml>=6.0
+
+# Optional: AI triage engine (Ollama/OpenAI compatible client)
+openai>=1.0.0

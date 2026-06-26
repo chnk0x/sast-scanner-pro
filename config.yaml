@@ -1,0 +1,51 @@
+# SAST-VULN-SCANNER-PRO Configuration
+
+# Maximum file size to scan in bytes (5 MB)
+max_file_size: 5242880
+
+# Parallel scan workers
+workers: 4
+
+# Engine-specific settings
+engines:
+  regex:
+    enabled: true
+  semantic:
+    enabled: true
+  secret:
+    enabled: true
+    entropy_threshold: 4.5
+    entropy_min_len: 20
+  taint:
+    enabled: true
+  sca:
+    enabled: true
+  iac:
+    enabled: true
+  custom:
+    enabled: true
+    rules_dir: rules
+
+# AI triage (requires local Ollama instance)
+ai:
+  enabled: false
+  model: qwen2.5:1.5b
+  base_url: http://localhost:11434/v1
+  api_key: ollama
+
+# Reporting
+report:
+  formats:
+    - html
+    - json
+    - sarif
+  output_dir: sast_reports
+
+# Baseline / suppression
+baseline:
+  # path: baseline.json
+
+# Incremental scanning
+incremental:
+  enabled: false
+  cache: .sast_cache.json

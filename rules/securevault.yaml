@@ -1,0 +1,97 @@
+rules:
+  - id: CUSTOM-001
+    name: Insecure Flask run Configuration
+    description: Detects Flask app.run with debug=True or host 0.0.0.0
+    severity: MEDIUM
+    confidence: HIGH
+    languages: [python]
+    patterns:
+      - "app\\.run\\(.*debug\\s*=\\s*True"
+      - "app\\.run\\(.*host\\s*=\\s*['\"]0\\.0\\.0\\.0['\"]"
+    remediation: Disable debug mode in production and bind to specific interfaces.
+    cwe_id: CWE-489
+    owasp_category: A05:2021 – Security Misconfiguration
+    tags: [custom, flask, misconfiguration]
+
+  - id: CUSTOM-002
+    name: Insecure JWT Algorithm Allowance
+    description: Detects JWT decode allowing 'none' algorithm or weak secrets
+    severity: CRITICAL
+    confidence: HIGH
+    languages: [python]
+    patterns:
+      - "algorithms\\s*=\\s*\\[['\"]HS256['\"],\\s*['\"]none['\"]\\]"
+      - "algorithms\\s*=\\s*\\[['\"]none['\"]"
+    remediation: Only allow strong algorithms (HS256/RS256) and validate the secret.
+    cwe_id: CWE-347
+    owasp_category: A07:2021 – Identification and Authentication Failures
+    tags: [custom, jwt, crypto]
+
+  - id: CUSTOM-003
+    name: Insecure Session Cookie Settings
+    description: Flask session cookies configured without HttpOnly/Secure/SameSite
+    severity: MEDIUM
+    confidence: HIGH
+    languages: [python]
+    patterns:
+      - "SESSION_COOKIE_HTTPONLY\\s*=\\s*False"
+      - "SESSION_COOKIE_SECURE\\s*=\\s*False"
+      - "SESSION_COOKIE_SAMESITE\\s*=\\s*None"
+    remediation: Set SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SECURE=True, and SESSION_COOKIE_SAMESITE='Lax' or 'Strict'.
+    cwe_id: CWE-1004
+    owasp_category: A05:2021 – Security Misconfiguration
+    tags: [custom, flask, cookie, session]
+
+  - id: CUSTOM-004
+    name: Information Disclosure via Endpoint
+    description: Endpoint leaks secrets, config, or debug data
+    severity: HIGH
+    confidence: HIGH
+    languages: [python]
+    patterns:
+      - "secret_key|SECRET_KEY|password|PASSWORD.*json.dumps|os\\.environ.*json|app\\.config.*json.dumps"
+    remediation: Do not expose secrets, environment variables, or configuration in API responses.
+    cwe_id: CWE-209
+    owasp_category: A05:2021 – Security Misconfiguration
+    tags: [custom, info-disclosure, secret]
+
+  - id: CUSTOM-005
+    name: Insecure File Upload Allowed Extensions
+    description: Executable or dangerous file types allowed for upload
+    severity: HIGH
+    confidence: HIGH
+    languages: [python]
+    patterns:
+      - "['\"]exe['\"].*ALLOWED_EXTENSIONS|ALLOWED_EXTENSIONS.*['\"]exe['\"]"
+      - "['\"]sh['\"].*ALLOWED_EXTENSIONS|ALLOWED_EXTENSIONS.*['\"]sh['\"]"
+      - "['\"]bat['\"].*ALLOWED_EXTENSIONS|ALLOWED_EXTENSIONS.*['\"]bat['\"]"
+    remediation: Restrict file uploads to safe, required MIME types. Reject executable files and validate content-type.
+    cwe_id: CWE-434
+    owasp_category: A04:2021 – Insecure Design
+    tags: [custom, file-upload, dangerous-extension]
+
+  - id: CUSTOM-006
+    name: User-Controlled Filename Saved to Disk
+    description: Uploaded file saved using raw user-supplied filename without randomization
+    severity: HIGH
+    confidence: MEDIUM
+    languages: [python]
+    patterns:
+      - "file\\.filename.*save|save\\(.*file\\.filename|os\\.path\\.join\\(.*file\\.filename"
+    remediation: Generate a random filename server-side. Store the original name only as metadata.
+    cwe_id: CWE-22
+    owasp_category: A01:2021 – Broken Access Control
+    tags: [custom, path, file-upload]
+
+  - id: CUSTOM-007
+    name: IDOR / Missing Authorization Check
+    description: Resource accessed by ID without verifying ownership or role
+    severity: HIGH
+    confidence: MEDIUM
+    languages: [python]
+    patterns:
+      - "query\\.get_or_404\\(.*user_id|User\\.query\\.get_or_404\\(.*user_id|FileRecord\\.query\\.get_or_404"
+    remediation: Verify that the authenticated user owns the requested resource or has the required role before returning data.
+    cwe_id: CWE-284
+    owasp_category: A01:2021 – Broken Access Control
+    tags: [custom, idor, authorization]

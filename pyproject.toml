@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sast-vuln-scanner-pro"
+version = "2.0.0"
+description = "Senior-level AI-augmented SAST scanner with CVSS, SARIF, and multi-engine analysis."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Cyber Security Senior Project"}
+]
+keywords = ["sast", "security", "vulnerability", "scanner", "static-analysis"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Security",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "pyyaml>=6.0",
+    "openai>=1.0.0",
+]
+
+[project.scripts]
+sast-scanner-pro = "sast_scanner.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["sast_scanner*"]
