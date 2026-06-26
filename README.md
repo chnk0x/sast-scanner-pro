@@ -63,29 +63,61 @@
 
 ---
 
-## 🆕 Feature
+## 🆕 Feature Overview
 
-| Feature 
+🧠 **Analysis Engine**  
+Regex + AST analysis + taint/data-flow tracking + entropy-based secret detection + AI-assisted triage  
 
-🧠 Analysis approach: Regex + AST analysis + taint/data-flow tracking + entropy-based secret detection + AI-assisted triage
-📦 Dependency scanning (SCA): Scans requirements.txt and package.json for vulnerable dependencies
-☁️ Infrastructure-as-Code scanning: Supports Dockerfile, Terraform, Kubernetes manifests, and Docker Compose files
-🕵️ Git history scanning: Detects secrets and sensitive data in commit history and diffs
-⚙️ Custom rule engine: YAML-based plugin system for defining custom vulnerability rules
-🌐 Multi-language support: Python, JavaScript/TypeScript, Java, Go, PHP, Ruby, C/C++, C#, Terraform, HCL
-📊 Output formats: HTML, JSON, SARIF v2.1.0, CSV, Trend dashboard
-⚠️ Severity model: CVSS 3.1 scoring with exploitability and confidence ratings
-📚 Security standards mapping: OWASP Top 10 2021 + CWE classification
-🏗️ Architecture: Modular plugin-based engine system (scanners + reporters)
-🔍 Taint analysis: Intra-procedural data-flow tracking for Python applications
-🧾 Baseline suppression: JSON fingerprinting to ignore known/accepted findings
-⚡ Incremental scanning: File-hash based scanning of only modified files
-📈 Trend analysis: Historical vulnerability trends using Chart.js dashboard
-🔁 CI/CD integration: SARIF output + GitHub Actions workflow support
-🚀 Parallel scanning: Multi-threaded execution using ThreadPoolExecutor
-🤖 AI triage: Optional local LLM (Ollama) for reducing false positives
-🧪 Test environment: Includes vulnerable Flask application (SecureVault) for testing
+📦 **Dependency Scanning (SCA)**  
+Scans requirements.txt and package.json for vulnerable dependencies  
 
+☁️ **Infrastructure-as-Code Scanning**  
+Supports Dockerfile, Terraform, Kubernetes manifests, and Docker Compose  
+
+🕵️ **Git History Scanning**  
+Detects secrets in commit history and diffs  
+
+⚙️ **Custom Rule Engine**  
+YAML-based plugin system for custom vulnerability rules  
+
+🌐 **Multi-language Support**  
+Python, JS/TS, Java, Go, PHP, Ruby, C/C++, C#, Terraform, HCL  
+
+📊 **Output Formats**  
+HTML, JSON, SARIF v2.1.0, CSV, Trend dashboard  
+
+⚠️ **Severity Model**  
+CVSS 3.1 scoring with exploitability + confidence  
+
+📚 **Security Standards**  
+OWASP Top 10 2021 + CWE mapping  
+
+🏗️ **Architecture**  
+Modular plugin-based scanner + reporter system  
+
+🔍 **Taint Analysis**  
+Intra-procedural data-flow tracking for Python  
+
+🧾 **Baseline Suppression**  
+Ignore known/accepted findings using fingerprinting  
+
+⚡ **Incremental Scanning**  
+Only scans modified files using hashing  
+
+📈 **Trend Analysis**  
+Historical vulnerability tracking (Chart.js dashboard)  
+
+🔁 **CI/CD Integration**  
+SARIF output + GitHub Actions support  
+
+🚀 **Parallel Scanning**  
+Multi-threaded execution using ThreadPoolExecutor  
+
+🤖 **AI Triage**  
+Optional Ollama LLM to reduce false positives  
+
+🧪 **Test Environment**  
+Includes vulnerable Flask app for validation
 <br/>
 
 ---
